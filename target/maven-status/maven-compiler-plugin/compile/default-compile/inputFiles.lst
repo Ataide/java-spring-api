@@ -1,1 +1,8 @@
-/home/ataide/lab/demo/src/main/java/com/ataide/demo/DemoApplication.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/models/User.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/security/CorsConfiguration.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/repositories/UserRepository.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/security/JwtProvider.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/security/LoginFilter.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/controllers/AuthController.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/security/WebSecurityConfig.java
+/home/ataide/Projetos/java-spring-api/src/main/java/com/ataide/demo/DemoApplication.java

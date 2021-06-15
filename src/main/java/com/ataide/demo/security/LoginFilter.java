@@ -26,11 +26,18 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
       HttpServletResponse httpResponse = (HttpServletResponse)response;
-      HttpServletRequest httpRequest = (HttpServletRequest)request;      
-
+      HttpServletRequest httpRequest = (HttpServletRequest)request;  
+      
+      String method = httpRequest.getMethod();     
+      
+      if(httpRequest.getMethod().equals("OPTIONS")) {
+        chain.doFilter(request, response);
+        return;
+      }
       //Para exemplificar as duas rotas permitidas sem credenciais. /login /register
       if (httpRequest.getServletPath().startsWith("/login")) {
           // Pode se logar
+          String token = httpRequest.getHeader("Authorization");
           chain.doFilter(request, response);
           return;
       }
@@ -41,7 +48,7 @@ public class LoginFilter implements Filter {
         return;
     }
 
-      Cookie token = WebUtils.getCookie(httpRequest, "token");
+      String token = httpRequest.getHeader("Authorization");
 
       if (token == null) {
           httpResponse.sendError(HttpStatus.UNAUTHORIZED.value());
@@ -50,7 +57,7 @@ public class LoginFilter implements Filter {
 
       try {
 
-        String jwt = token.getValue();
+        String jwt = token.substring(7, token.length());
         DecodedJWT decodedJwt = jwtProvider.decodeToken(jwt);
         Integer userId = decodedJwt.getClaim("userId").asInt();
         httpRequest.setAttribute("userId", userId);

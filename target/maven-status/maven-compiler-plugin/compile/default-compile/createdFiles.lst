@@ -1,1 +1,7 @@
+com/ataide/demo/controllers/AuthController.class
+com/ataide/demo/security/CorsConfiguration.class
+com/ataide/demo/security/JwtProvider.class
+com/ataide/demo/models/User.class
 com/ataide/demo/DemoApplication.class
+com/ataide/demo/repositories/UserRepository.class
+com/ataide/demo/security/LoginFilter.class
