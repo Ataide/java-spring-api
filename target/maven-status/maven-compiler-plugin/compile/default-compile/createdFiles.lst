@@ -1,3 +1,4 @@
+com/ataide/demo/controllers/MainController.class
 com/ataide/demo/controllers/AuthController.class
 com/ataide/demo/security/CorsConfiguration.class
 com/ataide/demo/dtos/UserResponseDto.class
