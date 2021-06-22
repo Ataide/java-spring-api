@@ -40,11 +40,6 @@ public class AuthController {
       }
       String token = jwtProvider.createToken(userExists.getId().toString());   
       UserResponseDto userResponse = new UserResponseDto(userExists.getId(),userExists.getName(), token);
-      // Cookie cookie = new Cookie("token", token);   
-      // cookie.setPath("/");
-      // cookie.setMaxAge(60 * 30); // 30 minutos
-      // response.addCookie(cookie);
-      // response.addHeader("Autorization", "Bearer "+token);
       return userResponse;
       
     } catch (Exception e) {      
@@ -66,11 +61,6 @@ public class AuthController {
     } else {
       response.sendError(HttpStatus.BAD_REQUEST.value(), "email already in use");     
     }
-  }
-  @CrossOrigin
-  @RequestMapping("/users")
-  public List<User> listUsers() {
-    return userRepository.findAll();
-  }
+  }  
   
 }
